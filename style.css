@@ -184,3 +184,16 @@ body {
     width: 0px;
     background: transparent;
 }
+
+/* Lunch Rush Combo Highlights */
+.lunch-rush .product-card.combo {
+    border: 3px solid var(--secondary-color);
+    background: rgba(245, 130, 32, 0.15);
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(245, 130, 32, 0.3);
+}
+
+.lunch-rush .product-card.combo .product-name {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}

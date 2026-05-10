@@ -11,6 +11,8 @@
 </head>
 <body>
     <div id="app-container">
+        <!-- Hidden element to track live preview mode changes -->
+        <div id="live-mode-tracker" data-bind-text="app_settings.preview_mode" style="display: none;"></div>
         <header class="header">
             <div class="logo-container">
                 <img class="logo" data-bind-src="storefront.logo" src="" alt="Sizzle & Sear Logo">

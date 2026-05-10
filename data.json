@@ -18,7 +18,11 @@
         "label": "Company Logo",
         "value": "assets/burger_chain_logo-1778453893896.png",
         "meta": {
-          "accepted_formats": ["png", "jpg", "svg"],
+          "accepted_formats": [
+            "png",
+            "jpg",
+            "svg"
+          ],
           "path": "assets/"
         }
       }
@@ -48,52 +52,130 @@
         "type": "number",
         "label": "Lunch Rush Start (Hour)",
         "value": 11,
-        "meta": { "format": "integer" }
+        "meta": {
+          "format": "integer"
+        }
       },
       "lunch_rush_end": {
         "type": "number",
         "label": "Lunch Rush End (Hour)",
         "value": 14,
-        "meta": { "format": "integer" }
+        "meta": {
+          "format": "integer"
+        }
       },
       "late_night_start": {
         "type": "number",
         "label": "Late Night Start (Hour)",
         "value": 21,
-        "meta": { "format": "integer" }
+        "meta": {
+          "format": "integer"
+        }
+      },
+      "preview_mode": {
+        "type": "enum",
+        "label": "Preview Mode",
+        "value": "auto",
+        "meta": {
+          "options": [
+            "auto",
+            "regular",
+            "lunch-rush",
+            "late-night"
+          ]
+        }
       }
     },
     "categories": {
       "type": "collection",
       "label": "Categories",
       "item_schema": {
-        "id": { "type": "text", "label": "ID" },
-        "name": { "type": "text", "label": "Category Name" }
+        "id": {
+          "type": "text",
+          "label": "ID"
+        },
+        "name": {
+          "type": "text",
+          "label": "Category Name"
+        }
       },
       "value": [
-        { "id": "cat_burgers", "name": "Signature Burgers" },
-        { "id": "cat_combos", "name": "Combo Deals" },
-        { "id": "cat_sides", "name": "Sides" },
-        { "id": "cat_drinks", "name": "Refreshing Drinks" }
+        {
+          "id": "cat_burgers",
+          "name": "Signature Burgers"
+        },
+        {
+          "id": "cat_combos",
+          "name": "Combo Deals"
+        },
+        {
+          "id": "cat_sides",
+          "name": "Sides"
+        },
+        {
+          "id": "cat_drinks",
+          "name": "Refreshing Drinks"
+        }
       ]
     },
     "products": {
       "type": "collection",
       "label": "Menu Items",
       "item_schema": {
-        "id": { "type": "text", "label": "ID" },
-        "name": { "type": "text", "label": "Item Name" },
-        "price": { "type": "number", "label": "Price", "meta": { "format": "currency" } },
-        "description": { "type": "textarea", "label": "Description" },
-        "category": { "type": "linked", "label": "Category", "meta": { "collection": "categories", "display_field": "name" } },
+        "id": {
+          "type": "text",
+          "label": "ID"
+        },
+        "name": {
+          "type": "text",
+          "label": "Item Name"
+        },
+        "price": {
+          "type": "number",
+          "label": "Price",
+          "meta": {
+            "format": "currency"
+          }
+        },
+        "description": {
+          "type": "textarea",
+          "label": "Description"
+        },
+        "category": {
+          "type": "linked",
+          "label": "Category",
+          "meta": {
+            "collection": "categories",
+            "display_field": "name"
+          }
+        },
         "thumbnail": {
           "type": "file",
           "label": "Photo",
-          "meta": { "accepted_formats": ["png", "jpg", "webp"], "path": "assets/" }
+          "meta": {
+            "accepted_formats": [
+              "png",
+              "jpg",
+              "webp"
+            ],
+            "path": "assets/"
+          }
         },
-        "is_special": { "type": "boolean", "label": "Daily Special", "value": false },
-        "is_combo": { "type": "boolean", "label": "Lunch Rush Combo", "value": false },
-        "is_late_night": { "type": "boolean", "label": "Late Night Item", "value": true }
+        "is_special": {
+          "type": "boolean",
+          "label": "Daily Special",
+          "value": false
+        },
+        "is_combo": {
+          "type": "boolean",
+          "label": "Lunch Rush Combo",
+          "value": false
+        },
+        "is_late_night": {
+          "type": "boolean",
+          "label": "Late Night Item",
+          "value": true
+        }
       },
       "value": [
         {
