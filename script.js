@@ -10,19 +10,17 @@ async function loadAppData() {
 }
 
 function getAppMode(settings) {
-    const liveModeTracker = document.getElementById('live-mode-tracker');
-    const override = liveModeTracker && liveModeTracker.textContent ? liveModeTracker.textContent : settings.preview_mode?.value || 'auto';
-
-    if (override !== 'auto') {
-        return override;
-    }
-
     const now = new Date();
     const hour = now.getHours();
 
-    if (hour >= settings.late_night_start.value || hour < 5) {
+    // Check for URL overrides for testing
+    const urlParams = new URLSearchParams(window.location.search);
+    const mockHour = urlParams.get('hour');
+    const currentHour = mockHour !== null ? parseInt(mockHour) : hour;
+
+    if (currentHour >= settings.late_night_start.value || currentHour < 5) {
         return 'late-night';
-    } else if (hour >= settings.lunch_rush_start.value && hour < settings.lunch_rush_end.value) {
+    } else if (currentHour >= settings.lunch_rush_start.value && currentHour < settings.lunch_rush_end.value) {
         return 'lunch-rush';
     }
     return 'regular';
@@ -116,20 +114,18 @@ async function init() {
 
     applyStyles(data);
 
-    let lastMode = getAppMode(data.sections.app_settings);
-    renderMenu(data, lastMode);
+    const mode = getAppMode(data.sections.app_settings);
+    console.log('Current mode:', mode);
+    renderMenu(data, mode);
 
     // Reveal app
     document.getElementById('app-container').classList.add('loaded');
 
-    // Refresh quickly to check for mode changes from live preview or time
+    // Refresh every minute to check for mode changes
     setInterval(() => {
         const currentMode = getAppMode(data.sections.app_settings);
-        if (currentMode !== lastMode) {
-            lastMode = currentMode;
-            renderMenu(data, currentMode);
-        }
-    }, 1000);
+        renderMenu(data, currentMode);
+    }, 60000);
 }
 
 init();
