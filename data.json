@@ -1,0 +1,157 @@
+{
+  "app_id": "aigen-1778451176332",
+  "document_version": 1,
+  "sections": {
+    "storefront": {
+      "company_name": {
+        "type": "text",
+        "label": "Company Name",
+        "value": "Sizzle & Sear Burger Co."
+      },
+      "tagline": {
+        "type": "text",
+        "label": "Tagline",
+        "value": "Premium Burgers, Local Roots"
+      },
+      "logo": {
+        "type": "file",
+        "label": "Company Logo",
+        "value": "assets/burger_chain_logo-1778453893896.png",
+        "meta": {
+          "accepted_formats": ["png", "jpg", "svg"],
+          "path": "assets/"
+        }
+      }
+    },
+    "app_settings": {
+      "primary_color": {
+        "type": "color",
+        "label": "Primary Color",
+        "value": "#00b7af"
+      },
+      "secondary_color": {
+        "type": "color",
+        "label": "Secondary Color",
+        "value": "#f58220"
+      },
+      "background_color": {
+        "type": "color",
+        "label": "Background Color",
+        "value": "#10181f"
+      },
+      "text_color": {
+        "type": "color",
+        "label": "Text Color",
+        "value": "#ffffff"
+      },
+      "lunch_rush_start": {
+        "type": "number",
+        "label": "Lunch Rush Start (Hour)",
+        "value": 11,
+        "meta": { "format": "integer" }
+      },
+      "lunch_rush_end": {
+        "type": "number",
+        "label": "Lunch Rush End (Hour)",
+        "value": 14,
+        "meta": { "format": "integer" }
+      },
+      "late_night_start": {
+        "type": "number",
+        "label": "Late Night Start (Hour)",
+        "value": 21,
+        "meta": { "format": "integer" }
+      }
+    },
+    "categories": {
+      "type": "collection",
+      "label": "Categories",
+      "item_schema": {
+        "id": { "type": "text", "label": "ID" },
+        "name": { "type": "text", "label": "Category Name" }
+      },
+      "value": [
+        { "id": "cat_burgers", "name": "Signature Burgers" },
+        { "id": "cat_combos", "name": "Combo Deals" },
+        { "id": "cat_sides", "name": "Sides" },
+        { "id": "cat_drinks", "name": "Refreshing Drinks" }
+      ]
+    },
+    "products": {
+      "type": "collection",
+      "label": "Menu Items",
+      "item_schema": {
+        "id": { "type": "text", "label": "ID" },
+        "name": { "type": "text", "label": "Item Name" },
+        "price": { "type": "number", "label": "Price", "meta": { "format": "currency" } },
+        "description": { "type": "textarea", "label": "Description" },
+        "category": { "type": "linked", "label": "Category", "meta": { "collection": "categories", "display_field": "name" } },
+        "thumbnail": {
+          "type": "file",
+          "label": "Photo",
+          "meta": { "accepted_formats": ["png", "jpg", "webp"], "path": "assets/" }
+        },
+        "is_special": { "type": "boolean", "label": "Daily Special", "value": false },
+        "is_combo": { "type": "boolean", "label": "Lunch Rush Combo", "value": false },
+        "is_late_night": { "type": "boolean", "label": "Late Night Item", "value": true }
+      },
+      "value": [
+        {
+          "id": "prod_classic_sear",
+          "name": "The Classic Sear",
+          "price": 9.99,
+          "description": "Double patty, aged cheddar, caramelized onions, house sauce.",
+          "category": "cat_burgers",
+          "thumbnail": "assets/signature_burger-1778453932982.png",
+          "is_special": true,
+          "is_combo": false,
+          "is_late_night": true
+        },
+        {
+          "id": "prod_spicy_sizzle",
+          "name": "Spicy Sizzle",
+          "price": 10.49,
+          "description": "Pepper jack, jalapeños, spicy aioli, crispy onions.",
+          "category": "cat_burgers",
+          "thumbnail": "assets/signature_burger-1778453932982.png",
+          "is_special": false,
+          "is_combo": false,
+          "is_late_night": true
+        },
+        {
+          "id": "prod_lunch_combo",
+          "name": "The Rush Hour Combo",
+          "price": 12.99,
+          "description": "Any burger, regular fries, and a large soda.",
+          "category": "cat_combos",
+          "thumbnail": "assets/burger_combo_deal-1778454001698.png",
+          "is_special": false,
+          "is_combo": true,
+          "is_late_night": false
+        },
+        {
+          "id": "prod_crispy_fries",
+          "name": "Hand-Cut Fries",
+          "price": 3.99,
+          "description": "Twice-fried with sea salt and fresh herbs.",
+          "category": "cat_sides",
+          "thumbnail": "assets/crispy_fries_side-1778453960213.png",
+          "is_special": false,
+          "is_combo": false,
+          "is_late_night": true
+        },
+        {
+          "id": "prod_fountain_soda",
+          "name": "Signature Soda",
+          "price": 2.49,
+          "description": "Ice-cold fountain soda with free refills.",
+          "category": "cat_drinks",
+          "thumbnail": "assets/refreshing_soda-1778453983886.png",
+          "is_special": false,
+          "is_combo": false,
+          "is_late_night": true
+        }
+      ]
+    }
+  }
+}
